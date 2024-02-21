@@ -14,14 +14,19 @@ const button = ({onPress,title}) => {
 }
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     position: 'absolute',
     bottom: 100,
     textAlign: 'center',
-  
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: { 
-    borderRadius: 10,
     padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginTop: 10,
   },
 })
 export default button
