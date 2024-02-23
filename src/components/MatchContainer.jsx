@@ -1,10 +1,10 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const MatchContainer = ({data}) => {
+const MatchContainer = ({data,onPress}) => {
+
   return (
-  
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
        <Image
          style={styles.imageStyle}
          contentFit="cover"
@@ -22,7 +22,7 @@ const MatchContainer = ({data}) => {
          style={styles.imageStyle}
          contentFit="cover"
          source={{ uri: data.participants[1].image_path }} /> 
-   </View>
+   </TouchableOpacity>
   )
 }
 const styles = StyleSheet.create({
@@ -41,9 +41,10 @@ const styles = StyleSheet.create({
   },
   info: {
     alignItems: "center",
+    
   },
   Teams: {
-    fontSize: 10, 
+    fontSize: 16, 
     lineHeight: 21,
     color: '#A9A9A9', 
     textAlign: "left",
@@ -61,17 +62,14 @@ const styles = StyleSheet.create({
   },
   container: {
     top: 12,
-    left: 16,
-    width: 373,
+    marginHorizontal: "2.5%",
+    width: "95%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    // height: 90,
     backgroundColor: "#ECEEF2",
     borderRadius: 10,
     marginBottom: 20,
-    // minHeight: 100,
-    // backgroundColor: "blue",
     padding: 15,
   },
   

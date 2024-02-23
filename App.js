@@ -4,6 +4,8 @@ import Landing from './src/screens/LandingScreen';
 import Matche from './src/screens/MatcheScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import PlayersScreen from './src/screens/PlayersScreen';
+import MatchDetailsScreen from './src/screens/MatchDetailsScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 const stack = createNativeStackNavigator();
@@ -14,9 +16,6 @@ export default function App() {
             initialRouteName="Matche"
             activeColor="#e91e63"
             barStyle={{ backgroundColor: 'white' }}
-            screenOptions={({ route }) => ({
-              tabBarVisible: route.name !== 'Landing',
-            })}
           >
         <Tab.Screen
           name="Matche"
@@ -35,6 +34,26 @@ export default function App() {
               tabBarLabel: 'Updates',
               tabBarIcon: ({ color }) => (
                 <MaterialCommunityIcons name="Landing" color={color} size={26} />
+              ),
+            }}
+          />
+         <Tab.Screen
+            name="Player"
+            component={PlayersScreen}
+            options={{
+              tabBarLabel: 'player',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="player" color={color} size={26} />
+              ),
+            }}
+          />
+         <Tab.Screen
+            name="Details"
+            component={MatchDetailsScreen}
+            options={{
+              tabBarLabel: 'Details',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="Details" color={color} size={26} />
               ),
             }}
           />
