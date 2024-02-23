@@ -1,19 +1,19 @@
 import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-const PlayerContainer = ({onPress}) => {
+const PlayerContainer = ({onPress,player}) => {
   return (
     <TouchableOpacity onPress={onPress}  style={styles.container}>
       <View style={styles.imageStyle}>
         <Image
           style={styles.imageStyle}
           contentFit="cover"
-          source={require('../../assets/landing.png')}
+          source={{uri:player.image_path}}
         />
       </View>
       <View style={styles.info}>
-        <Text style={styles.name}>Youssef</Text>
-        <Text style={styles.team}>MUSTHA</Text>
+        <Text style={styles.name}>{player.name}</Text>
+        <Text style={styles.team}>{player.nationality.name}</Text>
       </View>
     </TouchableOpacity>
   )

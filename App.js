@@ -1,6 +1,6 @@
  import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Landing from './src/screens/LandingScreen';
+// import Landing from './src/screens/LandingScreen';
 import Matche from './src/screens/MatcheScreen';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -27,7 +27,7 @@ export default function App() {
             ),
           }}
         />
-         <Tab.Screen
+         {/* <Tab.Screen
             name="Landing"
             component={Landing}
             options={{
@@ -36,7 +36,7 @@ export default function App() {
                 <MaterialCommunityIcons name="Landing" color={color} size={26} />
               ),
             }}
-          />
+          /> */}
          <Tab.Screen
             name="Player"
             component={PlayersScreen}

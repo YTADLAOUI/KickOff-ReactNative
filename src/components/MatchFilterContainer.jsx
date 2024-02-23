@@ -1,11 +1,11 @@
 import * as React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-const MatchFilterContainer = () => {
+const MatchFilterContainer = ({screen}) => {
   return (
     <View style={styles.container}>
         <View style={styles.matchesContainer}>
-          <Text style={styles.matchesText}>Matches</Text>
+          <Text style={styles.matchesText}>{screen}</Text>
         </View>
     </View>
   );

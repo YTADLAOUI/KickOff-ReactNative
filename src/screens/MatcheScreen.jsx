@@ -25,10 +25,10 @@ const Matche = () => {
 
   return (
     <View >
-      <MatchFilterContainer/>
+      <MatchFilterContainer screen={'Matches'}/>
       <ScrollView>
       {matches.map((match)=>(
-        <MatchContainer data={match} onPress={()=>(
+        <MatchContainer  data={match} onPress={()=>(
           console.log(match)
         )
         }/>
