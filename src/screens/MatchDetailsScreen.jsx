@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import MatchContainer from '../components/MatchContainer'
+import MatchFilterContainer from '../components/MatchFilterContainer'
 const match = {
   "aggregate_id": null,
  "details": null,
@@ -29,6 +30,7 @@ const match = {
 const MatchDetailsScreen = () => {
   return (
    <View>
+        <MatchFilterContainer screen={'Detail matche'}/>
         <MatchContainer data={match} onPress={()=>(
           console.log("match")
         )} />

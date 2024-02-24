@@ -6,6 +6,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PlayersScreen from './src/screens/PlayersScreen';
 import MatchDetailsScreen from './src/screens/MatchDetailsScreen';
+import ProfilePlayer from './src/screens/ProfilePlayer';
 
 const Tab = createMaterialBottomTabNavigator();
 const stack = createNativeStackNavigator();
@@ -54,6 +55,16 @@ export default function App() {
               tabBarLabel: 'Details',
               tabBarIcon: ({ color }) => (
                 <MaterialCommunityIcons name="Details" color={color} size={26} />
+              ),
+            }}
+          />
+         <Tab.Screen
+            name="Profile"
+            component={ProfilePlayer}
+            options={{
+              tabBarLabel: 'Profile',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="profile" color={color} size={26} />
               ),
             }}
           />

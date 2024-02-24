@@ -4,8 +4,10 @@ import MatchContainer from '../components/MatchContainer'
 import axios from "axios";
 import { ScrollView, View } from 'react-native'
 
+
 const Matche = () => {
   const [matches, setMatches] = useState([]);
+ 
   useEffect(() => {
     (
       async ()=>{
@@ -22,18 +24,18 @@ const Matche = () => {
       }
     )()
   }, [])
-
+  
   return (
     <View >
       <MatchFilterContainer screen={'Matches'}/>
-      <ScrollView>
-      {matches.map((match)=>(
-        <MatchContainer  data={match} onPress={()=>(
-          console.log(match)
-        )
-        }/>
-      ))}
-      </ScrollView>
+        <ScrollView >
+        {matches.map((match)=>(
+          <MatchContainer  data={match} onPress={()=>(
+            console.log(match)
+          )
+          }/>
+        ))}
+        </ScrollView>
     </View>
   )
 }
