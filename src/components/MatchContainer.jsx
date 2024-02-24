@@ -44,15 +44,10 @@ const styles = StyleSheet.create({
     
   },
   Teams: {
-    fontSize: 16, 
+    fontSize: 18, 
     lineHeight: 21,
     color: '#A9A9A9', 
     textAlign: "left",
-  },
-  depth4Frame1: {
-    height: 21,
-    width: 199,
-    overflow: "hidden",
   },
   middel: {
     height: 45,
@@ -70,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ECEEF2",
     borderRadius: 10,
     marginBottom: 20,
-    padding: 15,
+    padding: 10,
   },
   
 });

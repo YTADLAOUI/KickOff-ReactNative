@@ -5,7 +5,7 @@ import { ScrollView, View } from 'react-native';
 import MatchFilterContainer from '../components/MatchFilterContainer';
 import { Searchbar } from 'react-native-paper';
 
-const PlayersScreen = () => {
+const PlayersScreen = ({navigation}) => {
   const [allPlayers, setAllPlayers] = useState([]); 
   const [filteredPlayers, setFilteredPlayers] = useState([]); 
   const [search, setSearch] = useState('');
@@ -68,7 +68,7 @@ const PlayersScreen = () => {
       </View>
       <ScrollView style={{ height: '75%' }}>
         {filteredPlayers.map((player) => (
-          <PlayerContainer key={player.id} player={player} />
+          <PlayerContainer  onPress={() => navigation.navigate('Profile', { playerId: player.id })} key={player.id}  player={player}/>
         ))}
       </ScrollView>
     </>

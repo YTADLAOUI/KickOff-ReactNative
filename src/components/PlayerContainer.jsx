@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 const PlayerContainer = ({onPress,player}) => {
   return (
-    <TouchableOpacity onPress={onPress}  style={styles.container}>
+    <TouchableOpacity onPress={onPress}   style={styles.container}>
       <View style={styles.imageStyle}>
         <Image
           style={styles.imageStyle}

@@ -5,20 +5,22 @@ import axios from "axios";
 import { ScrollView, View } from 'react-native'
 
 
-const Matche = () => {
+const Matche = ({navigation}) => {
   const [matches, setMatches] = useState([]);
  
   useEffect(() => {
     (
       async ()=>{
         try {
-          const response = await axios.get('https://api.sportmonks.com/v3/football/fixtures?include=participants', {
+          const response = await axios.get(`https://api.sportmonks.com/v3/football/fixtures?include=participants`, {
             headers: {
               'Authorization': 'hRUrsgLPx1hOtaduIEtebzydO5DGGnEpBgwmM4twAKBWMZHpYmcPWDW9ZGrX'
             }
           });
+          console.log(response.data.data)
           setMatches(response.data.data);
         } catch (error) {
+          console.log("why")
           console.error("Error fetching matches:", error);
         }
       }
@@ -30,8 +32,8 @@ const Matche = () => {
       <MatchFilterContainer screen={'Matches'}/>
         <ScrollView >
         {matches.map((match)=>(
-          <MatchContainer  data={match} onPress={()=>(
-            console.log(match)
+          <MatchContainer key={match.id}  data={match} onPress={()=>(
+            navigation.navigate('Details', {id:match.id})
           )
           }/>
         ))}
