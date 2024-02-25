@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PlayerContainer from '../components/PlayerContainer';
 import axios from 'axios';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import MatchFilterContainer from '../components/MatchFilterContainer';
 import { Searchbar } from 'react-native-paper';
 
@@ -24,7 +24,6 @@ const PlayersScreen = ({navigation}) => {
         console.log(response.data);
         setAllPlayers(response.data.data);
         setFilteredPlayers(response.data.data);
-
         console.log('players', allPlayers);
       } catch (error) {
         console.error('Error fetching Player:', error);
@@ -36,7 +35,6 @@ const PlayersScreen = ({navigation}) => {
     (async () => {
       if (search !== '') {
         try {
-          console.log('search', search);
           const response = await axios.get(
             `https://api.sportmonks.com/v3/football/players/search/${search}?include=nationality`,
             {
@@ -45,7 +43,6 @@ const PlayersScreen = ({navigation}) => {
               },
             }
           );
-          console.log('search result', response.data.data);
           setFilteredPlayers(response.data.data);
         } catch (error) {
           console.error('Error fetching Player:', error);
@@ -54,7 +51,7 @@ const PlayersScreen = ({navigation}) => {
         setFilteredPlayers(allPlayers);
       }
     })();
-  }, [search, allPlayers]);
+  }, [search]);
 
   return (
     <>
@@ -66,11 +63,20 @@ const PlayersScreen = ({navigation}) => {
           value={search}
         />
       </View>
+      {
+        filteredPlayers && filteredPlayers.length > 0 ?(
       <ScrollView style={{ height: '75%' }}>
         {filteredPlayers.map((player) => (
           <PlayerContainer  onPress={() => navigation.navigate('Profile', { playerId: player.id })} key={player.id}  player={player}/>
         ))}
-      </ScrollView>
+      </ScrollView>):(
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ fontSize: 20, lineHeight: 21, color: '#A9A9A9', textAlign: 'center' }}>
+            no data
+          </Text>
+        </View>
+        )
+      }
     </>
   );
 };

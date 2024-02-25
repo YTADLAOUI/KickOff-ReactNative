@@ -18,9 +18,6 @@ const FavoriteButton = ({ match }) => {
     }
     setIsClicked(!isClicked);
   };
-    // useEffect(() => {
-    //   console.log(favorites);
-    // }, [isFavorite, isClicked]);
   return (
     <TouchableOpacity onPress={handlePress}>
       <Icon
