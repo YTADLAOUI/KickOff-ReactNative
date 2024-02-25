@@ -12,11 +12,21 @@ import { Provider } from 'react-redux'
 import { store } from './app/store'
 
 const Tab = createMaterialBottomTabNavigator();
-const stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <Provider store={store}> 
-      <NavigationContainer>
+      <NavigationContainer >
+      {/* <Stack.Navigator >
+          <Stack.Screen
+            name="Details"
+            component={MatchDetailsScreen}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={ProfilePlayer}
+          />
+        </Stack.Navigator> */}
             <Tab.Navigator
               initialRouteName="Matche"
               activeColor="#e91e63"
@@ -32,6 +42,20 @@ export default function App() {
               ),
             }}
           />
+          <Stack.Screen
+            name="Details"
+            component={MatchDetailsScreen}
+            options={{
+              tabBarLabel: 'Details',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="information" color={color} size={26} />
+              ),
+            }}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={ProfilePlayer}
+          />
           <Tab.Screen
               name="Player"
               component={PlayersScreen}
@@ -42,7 +66,7 @@ export default function App() {
                 ),
               }}
             />
-          <Tab.Screen
+          {/* <Tab.Screen
               name="Details"
               component={MatchDetailsScreen}
               options={{
@@ -61,7 +85,7 @@ export default function App() {
                   <MaterialCommunityIcons name="profile" color={color} size={26} />
                 ),
               }}
-            />
+            /> */}
           <Tab.Screen
               name="Favorite"
               component={FavoritesScreen}

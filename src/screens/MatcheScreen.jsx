@@ -7,6 +7,7 @@ import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 
 const Matche = ({navigation}) => {
   const [matches, setMatches] = useState([]);
+  const [Copiermatches, setCopierMatches] = useState([]);
  
   useEffect(() => {
     (
@@ -18,6 +19,7 @@ const Matche = ({navigation}) => {
             }
           });
           console.log(response.data.data)
+          setCopierMatches(response.data.data);
           setMatches(response.data.data);
         } catch (error) {
           console.log("why")
@@ -26,18 +28,25 @@ const Matche = ({navigation}) => {
       }
     )()
   }, [])
-  
+   const handaleFilter = (id) => {
+     const newLeague= matches.filter((match)=>(
+      match.league.id===id
+    ))
+    setMatches(newLeague)
+   }
   return (
     <View >
       <MatchFilterContainer screen={'Matches'}/>
         <View > 
           <ScrollView horizontal>
-               <TouchableOpacity onPress={()=>{}} style={{backgroundColor:"#A9A9A9",width:100,height:40,borderRadius:10,alignItems:'center',justifyContent:'center',padding:5,marginLeft:2}}>
+               <TouchableOpacity onPress={()=>{setMatches(Copiermatches)}} style={{backgroundColor:"#A9A9A9",width:100,height:40,borderRadius:10,alignItems:'center',justifyContent:'center',padding:5,marginLeft:2}}>
                <Text>All Matches</Text>
             </TouchableOpacity>
             {
               matches.map((match)=>(
-            <TouchableOpacity onPress={()=>{}} style={{backgroundColor:"#A9A9A9",width:100,height:40,borderRadius:10,alignItems:'center',justifyContent:'center',padding:5,marginLeft:2}}>
+            <TouchableOpacity onPress={()=>{
+              handaleFilter(match.league_id)
+            }} style={{backgroundColor:"#A9A9A9",width:100,height:40,borderRadius:10,alignItems:'center',justifyContent:'center',padding:5,marginLeft:2}}>
                  <Text>{match.league.name}</Text>
               </TouchableOpacity>
               ))
