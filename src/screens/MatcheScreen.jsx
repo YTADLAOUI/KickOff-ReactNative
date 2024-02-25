@@ -30,7 +30,7 @@ const Matche = ({navigation}) => {
   return (
     <View >
       <MatchFilterContainer screen={'Matches'}/>
-        <ScrollView >
+        <ScrollView style={{height:"85%"}} >
         {matches.map((match)=>(
           <MatchContainer key={match.id}  data={match} onPress={()=>(
             navigation.navigate('Details', {id:match.id})

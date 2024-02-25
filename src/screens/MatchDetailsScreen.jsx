@@ -95,6 +95,7 @@ const Styles = StyleSheet.create({
     },
    detail: {
     height: "55%",
+    padding: 20,
     top: 15,
     marginHorizontal: "2.5%",
     backgroundColor: "#ECEEF2",

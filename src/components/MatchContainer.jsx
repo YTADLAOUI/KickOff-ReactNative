@@ -1,10 +1,12 @@
 import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
+import FavoriteButton from './FavoriteButton';
+// import Button  from './button';
 const MatchContainer = ({data,onPress}) => {
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container1}>
+      <View style={styles.container}> 
        <Image
          style={styles.imageStyle}
          contentFit="cover"
@@ -22,16 +24,18 @@ const MatchContainer = ({data,onPress}) => {
          style={styles.imageStyle}
          contentFit="cover"
          source={{ uri: data.participants[1].image_path }} /> 
+      </View>
+         {/* <Button title="Details" onPress={onPress} /> */}
+         <FavoriteButton match={data} />
    </TouchableOpacity>
   )
 }
 const styles = StyleSheet.create({
   imageStyle: {
     borderRadius: 4,
-    width: 60,
+    width: 50,
     overflow: "hidden",
-    height: 60,
-    marginLeft: 12,
+    height: 50,
   },
   date: {
     lineHeight: 24,
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
    
   },
   container: {
-    top: 12,
+    top: 20,
     marginHorizontal: "2.5%",
     width: "95%",
     flexDirection: "row",
@@ -65,6 +69,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#ECEEF2",
     borderRadius: 10,
     marginBottom: 20,
+    padding: 10,
+  },
+  container1: {
+    marginHorizontal: "2.5%",
+    width: "95%",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "#ECEEF2",
     padding: 10,
   },
   

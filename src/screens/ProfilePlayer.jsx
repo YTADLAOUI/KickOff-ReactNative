@@ -29,27 +29,33 @@ const ProfilePlayer = ({ route,navigation }) => {
     <>
     <View>
       <MatchFilterContainer screen={'Profile'}/>
-      <View style={styles.container1}>
-      <ImageBackground style={styles.container} source={{uri:player.nationality.image_path}}>
+      { player.nationality ?(
+        <>
+          <View style={styles.container1}>
+          <ImageBackground style={styles.container} source={{uri:player.nationality.image_path}}>
 
-       <Image style={styles.img} source={{uri:player.image_path}}/>
-        </ImageBackground>
-        <View style={styles.container1}>
-        <Text style={styles.title}>{player.name}</Text>
-        <Text style={styles.info}>{player.date_of_birth}</Text>
-        <Text style={styles.info}>{player.nationality.official_name}</Text>
-        </View>
-      </View>
-        <View style={styles.container2}>
-        <Text style={styles.title}>About</Text>
-          <Text>Height       : {player.height} cm</Text>
-          <Text>Width         : 80 kg</Text>
-          <Text>nationality : {player.nationality.name}</Text>
-          <Text style={styles.title}>State</Text>
-          <Text>Shot : 130 </Text>
-          <Text>Goal : 50</Text>
-          <Text>Assist : 20</Text>
-        </View>
+          <Image style={styles.img} source={{uri:player.image_path}}/>
+            </ImageBackground>
+            <View style={styles.container1}>
+            <Text style={styles.title}>{player.name}</Text>
+            <Text style={styles.info}>{player.date_of_birth}</Text>
+            <Text style={styles.info}>{player.nationality.official_name}</Text>
+            </View>
+          </View>
+            <View style={styles.container2}>
+            <Text style={styles.title}>About</Text>
+              <Text>Height       : {player.height} cm</Text>
+              <Text>Width         : 80 kg</Text>
+              <Text>nationality : {player.nationality.name}</Text>
+              <Text style={styles.title}>State</Text>
+              <Text>Shot : 130 </Text>
+              <Text>Goal : 50</Text>
+              <Text>Assist : 20</Text>
+            </View>
+        </>
+        ):(<View>
+          <Text>loading...</Text>
+        </View>)}
     </View>
     </>
   )
