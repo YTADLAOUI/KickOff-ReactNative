@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { ImageBackground, View, Text, StyleSheet, Image } from 'react-native'; // Import Text from 'react-native' to display error messages
+import { ImageBackground, View, Text, StyleSheet, Image } from 'react-native'; 
 import axios from 'axios';
 import MatchFilterContainer from '../components/MatchFilterContainer';
+import ButtonNavigation from '../components/ButtonNavigation';
 
 const MatchDetailsScreen = ({ route, navigation }) => {
   const { id } = route.params;
@@ -64,6 +65,7 @@ const MatchDetailsScreen = ({ route, navigation }) => {
               <Text  style={Styles.info}>venue capacity:                       {match.venue.capacity}</Text>
               <Text  style={Styles.info}>venue surface :                       {match.venue.surface}</Text>
               <Text  style={Styles.info}>last played at:                       {match.league.last_played_at}</Text>
+                  <ButtonNavigation style={{margin:10}} mode="contained" onPress={() => navigation.navigate('Matche')} name={"see all Matche"}/>
               </View>
             </View>
         </>

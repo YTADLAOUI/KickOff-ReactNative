@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 import MatchFilterContainer from '../components/MatchFilterContainer'
 import axios from 'axios';
+import ButtonNavigation from '../components/ButtonNavigation';
 
 const ProfilePlayer = ({ route,navigation }) => {
   const { playerId } = route.params;
@@ -49,8 +50,9 @@ const ProfilePlayer = ({ route,navigation }) => {
               <Text>nationality : {player.nationality.name}</Text>
               <Text style={styles.title}>State</Text>
               <Text>Shot : 130 </Text>
-              <Text>Goal : 50</Text>
+              <Text>Goal  : 50</Text>
               <Text>Assist : 20</Text>
+              <ButtonNavigation style={{margin:10}} mode="contained" onPress={() => navigation.navigate('Player')} name={"see all player"}/>
             </View>
         </>
         ):(<View>
